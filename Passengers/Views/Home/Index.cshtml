@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "Welcome";
+}
+<div id="content">
+    <section id="widget-grid" class="">
+        <!-- row -->
+        <div class="row">
+            <!-- NEW WIDGET START -->
+            <article class="col-sm-12 col-md-12 col-lg-12">
+                <!-- Widget ID (each widget will need unique ID)-->
+                <div class="jarviswidget" id="wid-id-0" data-widget-colorbutton="false" data-widget-editbutton="false">
+                    <!-- widget options:
+                    usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+                    data-widget-colorbutton="false"
+                    data-widget-editbutton="false"
+                    data-widget-togglebutton="false"
+                    data-widget-deletebutton="false"
+                    data-widget-fullscreenbutton="false"
+                    data-widget-custombutton="false"
+                    data-widget-collapsed="true"
+                    data-widget-sortable="false"
+                    -->
+                    <header>
+                        <div class="pull-left">
+                            <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
+                            <h2>Passengers Detail</h2>
+                            <p>Please click on the booking refrence number to get all the passengers list</p>
+                        </div>
+                        <div class="pull-right">
+                            <input type="Button" class="btn btn-default" value="Search" onclick="window.location.href='@Url.Action("index","search")'"/>
+                            <input type="Button" class="btn btn-default" value="Add" onclick="window.location.href='@Url.Action("index","adddata")'" />
+                        </div>
+                    </header>
+                    <!-- widget div-->
+                    <div>
+                        <!-- widget edit box -->
+                        <div class="jarviswidget-editbox">
+                            <!-- This area used as dropdown edit box -->
+                        </div>
+                        <!-- end widget edit box -->
+                        <!-- widget content -->
+                        <div class="widget-body">
+                            <div class="row">  
+                                <table id="passengers" class="table table-condensed" style="border-collapse:collapse;" style="width:100%;">
+                                    <tr><td><h3>Booking Reference Number</h3></td></tr>
+                                </table>                          
+                            </div>    
+                        </div>
+                        <!-- end widget content -->
+                    </div>
+                    <!-- end widget div -->
+                </div>
+                <!-- end widget -->
+            </article>
+            <!-- WIDGET END -->
+        </div>
+    </section>
+</div>
+
+<div id="content">
+    @*render tables here in jquery*@
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $.getJSON('../Api/PassengersApi', function (data) {
+            
+            var dist_rl = [];
+            if (data.length > 0) {
+                for (var i = 0; i < data.length; i++) {
+                    if (dist_rl.indexOf(data[i].record_locator) < 0) {
+                        dist_rl.push(data[i].record_locator);
+                    }
+                }
+                if (dist_rl.length > 0) {
+                    for (var i = 0; i < dist_rl.length; i++) {
+                        var tr = "";
+
+                        tr += '<tr data-toggle="collapse" data-target="#data' + i + '" class="accordion-toggle"><td><h4>' + dist_rl[i] + '</h4></td></tr>';
+                        tr += '<tr><td class="hiddenRow"><div class="accordian-body collapse" id="data' + i + '" style="margin-left:35px;">';
+                        var cnt = 0;
+                        for (var j = 0; j < data.length; j++) {
+                            
+                            
+                            if (dist_rl[i] == data[j].record_locator) {
+                                tr += '<p><h6>' + data[j].passenger_name + '<h6></p>';
+                                cnt++;
+                            }
+                        }
+                        if (cnt > 0) {
+                            tr += '</td></tr>';
+                        }
+                        else {
+                            tr += '<p>No Passengers details found.</p></td></tr>';
+                        }
+                        $("#passengers tr:last").after(tr);
+                    }
+                }
+                $('.accordian-body').on('show.bs.collapse', function () {
+                    $(this).closest("table")
+                        .find(".collapse.in")
+                        .not(this)
+                        .collapse('toggle')
+                });
+            }
+            else {
+                tr += "<tr><td><p>No rseult found.</p></td></tr>";
+                $("#passengers tr:last").after(tr);
+            }
+        });
+    });
+</script>
+
+

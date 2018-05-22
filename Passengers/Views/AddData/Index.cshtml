@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "Welcome";
+}
+<div id="content">
+    <section id="widget-grid" class="">
+        <!-- row -->
+        <div class="row">
+            <!-- NEW WIDGET START -->
+            <article class="col-sm-12 col-md-12 col-lg-12">
+                <!-- Widget ID (each widget will need unique ID)-->
+                <div class="jarviswidget" id="wid-id-0" data-widget-colorbutton="false" data-widget-editbutton="false">
+                    <!-- widget options:
+                    usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+                    data-widget-colorbutton="false"
+                    data-widget-editbutton="false"
+                    data-widget-togglebutton="false"
+                    data-widget-deletebutton="false"
+                    data-widget-fullscreenbutton="false"
+                    data-widget-custombutton="false"
+                    data-widget-collapsed="true"
+                    data-widget-sortable="false"
+                    -->
+                    <header>
+                        <div class="pull-left">
+                            <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
+                            <h2>Passengers Detail</h2>
+                            <p>Add new data</p>
+                           <form id="process-form" class="smart-form ng-pristine ng-valid">
+                                <fieldset>                                    
+                                    <div class="row">
+                                        <label class="label col col-2">Surname:</label>
+                                        <div class="col col-10 has-error">
+                                            <label class="input">
+                                                <input type="text" id="surname" name="surname" class="has-error"/>
+                                            </label>
+                                            <span for="surname" class="help-block" style="display:none;"></span>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <label class="label  col col-2">Given Name:</label>
+                                        <div class="col col-10 has-error">
+                                            <label class="input">
+                                                <input type="text" id="given" name="given" class="has-error"/>
+                                            </label>
+                                            <span for="given" class="help-block" style="display:none;"></span>
+                                        </div>
+                                    </div> 
+                                    <br />
+                                    <div class="row">
+                                        <label class="label  col col-2">Booking Reference No:</label>
+                                        <div class="col col-10 has-error">
+                                            <label class="input">
+                                                <input type="text" id="brf" name="brf" class="has-error"/>
+                                            </label>
+                                            <span for="brf" class="help-block" style="display:none;"></span>
+                                        </div>
+                                    </div>                            
+                                </fieldset>
+                        <footer>
+                            <button type="button" class="btn btn-default" id="" onclick="addData();">
+                                Add
+                            </button>
+                        </footer>
+                    </form>
+                        </div>
+                        <div class="pull-right">
+                            <input type="Button" class="btn btn-default" value="Search" onclick="window.location.href='@Url.Action("index","search")'"/>
+                            <input type="Button" class="btn btn-default" value="Home" onclick="window.location.href='@Url.Action("index","Home")'"/>
+                        </div>
+                    </header>
+                    
+                <!-- end widget -->
+            </article>
+            <!-- WIDGET END -->
+        </div>
+    </section>
+</div>
+
+<div id="content">
+    @*render tables here in jquery*@
+</div>
+<script type="text/javascript">
+    function addData(){
+        $.ajax({
+            type: 'POST',
+            async: false,
+            url: "@Url.Action("updateFile", "passengers")",
+            data: {
+                given: $("#given").val().toUpperCase(),
+                surname: $("#surname").val().toUpperCase(),
+                brf: $("#brf").val().toUpperCase(),
+            },
+            dataType: "json",
+            success: function (data) {
+                debugger;
+                if (data.result == 0) {
+                    alert("Data added to the file successfully");
+                    window.location.reload();
+                }
+            }
+        });
+    }
+</script>
+
+

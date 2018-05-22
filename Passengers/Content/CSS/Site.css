@@ -1,0 +1,52 @@
+﻿/*
+ Description: Common site css 
+ Author: Raj Bandi
+ Date: 27-Sep-2014  
+ */
+
+html, body {
+  width: auto !important;
+  overflow-x: hidden !important;
+}
+     .collapseicon {
+        font-family: "Glyphicons Halflings";
+        font-style: normal;
+        
+    }
+
+#leftPanel {
+    z-index: 100;   
+}
+#mapPanel {
+    z-index: 9999;
+}
+    h4.panel-title {
+        cursor: pointer;
+    }
+    h4 span.collapseicon::before {
+        content: "\2212";
+    }
+
+    h4.collapsed span.collapseicon::before {
+        content: "\2b";
+    }
+
+    span.error,li.error {
+        color: red;
+    }
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    
+}
+#loader {
+    position: fixed;
+      top: 50%;
+      left: 50%;
+    z-index: 9999;
+}

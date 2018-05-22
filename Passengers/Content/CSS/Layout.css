@@ -1,0 +1,394 @@
+﻿/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+#wrapper
+{
+    min-height:100%;
+	position:relative;
+    margin:0;
+    padding:0;
+}
+
+header, #header
+{
+    color: #000;
+    height: auto;
+    min-height:54px;
+    width:100%;
+    min-width:900px;
+    background: url(/Content/Images/topbar.png) repeat-x #2f6aa1;
+    margin-bottom:0px;
+    margin:0;
+    padding:0;
+    position:relative;
+    
+}
+
+#header-container
+{
+    padding:0 10px;
+    height:54px;
+    min-width:900px;
+}
+
+#logo
+{
+    padding-top:8px;
+    width:100%;
+}
+
+#app-name
+{
+    float:right;
+    color: green;
+    font-size: 18px;
+    font-style:italic;
+    text-shadow: 1px 1px 0px #000;
+    padding-top: 12px;
+    text-align:left;
+    width:auto;
+}
+
+nav, #nav
+{
+    margin:0;
+    padding:0;
+    height:30px;
+    width:100%;
+    background:#2f6aa1;
+    position:relative;
+    min-width:900px;
+    
+}
+
+#content-container
+{
+    
+    width:100%;
+    height:auto;
+    margin:0;
+   padding:0;
+   clear:both;
+  
+  
+
+}
+
+#content-body
+{
+    background-color:#DDE5F2;
+    height:100%;
+    min-height:100%;
+    width:100%;
+    display:block;
+    margin:0;
+    padding:0;
+    padding-bottom:100px;
+}
+
+
+.content
+{
+    margin:0 30px;
+    padding-bottom:50px;
+    *padding-bottom:80px;
+    min-width:600px;
+   
+}
+
+.panel{
+	margin:auto; *text-align:left; width: 45%; height:100%; 
+    background: #e2eaf2; padding:50px; padding-top:1px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+
+#sidebar
+{
+    width:14%;
+    background:#d8e5f1;
+    float:left;
+    display:block;
+    height:100%; 
+    min-height:700px;
+    -webkit-border-bottom-right-radius: 8px;
+-moz-border-radius-bottomright: 8px;
+border-bottom-right-radius: 8px;
+padding-bottom:10px;
+}
+
+.sidebar-button
+{  
+    background:#b3d0ec;
+    width:100%;
+    height:30px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+    .sidebar-button:hover
+    {  
+        background:#9dbad7;
+    }
+
+a .sidebar-button-text
+{
+    text-decoration:underline;
+}
+
+.sidebar-button-text
+{
+    padding-left:10px;
+    padding-top:6px;
+    height:24px;
+    text-decoration:none;
+    color:#0a355d;
+    font-size:13px;
+    font-weight:bold;
+}
+
+
+/* Grid system: 942px - 62px columns - 18px gutters */
+
+/* Covers all website layouts */
+.grid_1  { width: 59px;  }
+.grid_2  { width: 118px; }
+.grid_3  { width: 177px; }
+.grid_4  { width: 236px; }
+.grid_5  { width: 295px; }
+.grid_6  { width: 354px; }
+.grid_7  { width: 413px; }
+.grid_8  { width: 472px; }
+.grid_9  { width: 531px; }
+.grid_10  { width: 590px; }
+.grid_11  { width: 649px; }
+.grid_12  { width: 708px; }
+
+.l-column,
+.l-column-overflow {
+     overflow:hidden; 
+     float:left;
+     margin-left:13px;
+}
+.l-column-overflow {
+     overflow:visible
+}
+.l-column:first-child {
+     margin-top:0;
+     margin-left:0;
+     padding-left:0;
+}
+l.column:last-child
+{
+    margin-top:0;
+    margin-right:0;
+    padding-right:0;
+}
+
+.l-row {
+     max-width: 722px; 
+     width: 100%;   
+     min-width: 722px;
+
+     padding:0;
+     margin:0;
+}
+.l-row .l-row { 
+     display: inline-block;
+}
+.ie7 .l-row .l-row {
+     /* IE7 inline-block fix */
+    display: inline;
+    zoom: 1;
+}
+
+/* Clear fix for floats - For modern browsers */
+.l-clearfix:before, .l-clearfix:after {
+    content: "";
+    display: table;
+}
+
+.l-clearfix:after {
+    clear: both;
+}
+
+/* For IE 6/7 (trigger hasLayout) */
+.l-clearfix {
+    zoom: 1;
+}
+
+.l-kill-margins {margin:0}
+
+
+
+
+#filterPopupWindow{        
+    width:100%;
+    display:none;
+    visibility: hidden;
+}
+
+
+.content{
+    padding: 5px 5px 5px 5px;
+    height: 400px;
+}
+#popup{
+    width:auto;
+	top:10%;
+	position:fixed;
+	left:10%;
+	right:10%;
+	bottom:10%;
+	height:auto;
+	background-color: #285c8d;
+	color:#132847;
+	padding:24px;
+	border:#ccc 5px solid;
+	font-size:15px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	z-index:5000;
+    color:#fff;
+    visibility: hidden;
+}
+
+#filterMenu {
+     position: fixed;
+     width:1100px; 
+
+     list-style:none; 
+     margin-left: 15%;
+     border:#ccc 3px solid;
+     color:white;
+     background-color: #285c8d;
+     -webkit-border-radius: 5px;
+	 -moz-border-radius: 5px;
+	 border-radius: 5px;
+     z-index:5001;
+     display: block;
+     padding: 20px;
+     visibility: hidden;
+}
+
+span.openPopup {
+	font-size: 15px;
+	font-weight: bold;
+	color: #132847;
+	font-family: "Cambria", "Arial Black", Arial;
+	border-bottom: #132847 1px solid;
+}
+
+div.closePopup {
+	float: right;
+	width: 80px;
+	height: 16px;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: bold;
+	color: #fff;
+    line-height:15px;
+	font-family: "Cambria", "Arial Black", Arial;
+    margin-top:3px;
+}
+div.popupTitle {
+	float: left;
+	width: 100%;
+    padding:0;
+    margin:0;
+    margin-bottom: 15px;
+	color: #fff;
+	font-family: "Cambria", "Arial Black", Arial;
+	border-bottom: #fff 1px solid;
+    line-height:15px;
+}
+    div.popupTitle h4 {
+        line-height:14px;
+        margin: 10px 0;
+    }
+
+div.popupContent{
+	float:left;width:100%;overflow:hidden;overflow-y:scroll; height:90%;-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;	
+	padding:0;
+	margin:0;
+	padding-right:20px;
+}
+
+.error {
+    color: red;
+    font-weight:bold;
+}
+
+.fieldSets {
+    background-color: #BCC8DD;
+    margin-left:auto;
+    margin-right:auto;
+    width: 80%;
+    padding: 10px;
+    border-top: 7px solid green;
+    border-bottom: 7px solid green;
+    -webkit-border-radius: 4px;
+    min-width:1100px;
+}
+
+#firstTable {
+    width: 510px;
+}
+
+#secondTable {
+    width: 479px;
+}
+
+#thirdTable {
+    width: 520px;
+}
+
+#fourthTable {
+    width: 1060px;
+}
+
+#fifthTable {
+    width: 600px;
+    
+}
+
+#sixthTable {
+    width: 640px;
+}
+#copyright {
+     width: 100%;
+    height: 50px;
+    clear: both;
+    text-align: left;
+    font-size: 12px;
+    color: #7f7f7f;
+    text-align: center;
+
+}
+#CaptchaInputText {
+    width: 185px;
+}
+
+.autoFillTextLink:hover {
+    cursor: pointer;
+}
+
+#catNote {
+    color:red;  
+}
+
+#map-canvas {
+    width:530px;
+    height:240px;
+
+}
+#personaldDetailsContainer {
+    float:left;
+}
+.udflabel {
+    width: 204px;
+}
