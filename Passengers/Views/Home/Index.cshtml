@@ -42,7 +42,7 @@
                         <!-- widget content -->
                         <div class="widget-body">
                             <div class="row">  
-                                <table id="passengers" class="table table-condensed" style="border-collapse:collapse;" style="width:100%;">
+                                <table id="passengers" class="table table-condensed" style="border-collapse:collapse;width:100%;">
                                     <tr><td><h3>Booking Reference Number</h3></td></tr>
                                 </table>                          
                             </div>    
@@ -65,7 +65,7 @@
 
     $(document).ready(function () {
 
-        $.getJSON('../Api/PassengersApi', function (data) {
+        $.getJSON('./Api/PassengersApi', function (data) {
             
             var dist_rl = [];
             if (data.length > 0) {
