@@ -68,7 +68,7 @@
     $(document).ready(function () {    });
 
     function search() {
-        $.getJSON('../Api/PassengersApi', function (result) {
+        $.getJSON('./Api/PassengersApi', function (result) {
             debugger;
             if (result.length > 0) {
                 var data = [];
